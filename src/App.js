@@ -20,7 +20,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-    	searchTerm: props.searchTerm
+    	searchTerm: props.searchTerm,
+      loadingIndicatorRunning: false
     };
 
     this.onUpdateWeirdness = this.onUpdateWeirdness.bind(this);
@@ -42,8 +43,15 @@ class App extends React.Component {
 
   handleSearchTermSubmit(e) {
     e.preventDefault();
+    this.setState({
+      loadingIndicatorRunning: true
+    });
     this.props.onUpdateSearchTerm(this.state.searchTerm);
-    this.props.onApiRequest();
+    this.props.onApiRequest((response) => {
+      this.setState({
+        loadingIndicatorRunning: false
+      });
+    });
     this.likeGifButton.current.removeAttribute("disabled");
   }
 
@@ -79,7 +87,8 @@ class App extends React.Component {
 	            			onLikeGif={this.onLikeGif}
 	            			searchResult={this.props.searchResult}
                     likeGifButton={this.likeGifButton}
-                		onUpdateWeirdness={this.onUpdateWeirdness} />
+                		onUpdateWeirdness={this.onUpdateWeirdness}
+                    loadingIndicatorRunning={this.state.loadingIndicatorRunning} />
 	            	</Col>
 	            	<Col xs="6">
 	            		<LikedGifs

@@ -11,12 +11,60 @@
   color: white;
 }
 
+.center {
+  margin: 0 auto;
+}
+
 /*************
 SearchResult
 **************/
+.SearchResult {
+  margin: 50px;
+}
 
 .SearchResult input {
   display: block;
+}
+
+.SearchResult__image {
+  text-align: center;
+}
+
+.SearchResult__image h5 {
+  text-align: center;
+}
+
+.SearchResult__image img {
+  text-align: center;
+}
+
+.SearchResult__image__wrapper {
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+  border: 1px solid #eee;
+  font-style: italic;
+  text-align: center;
+}
+
+.SearchResult__image__wrapper p {
+  margin-top: 100px;
+}
+
+.SearchResult__likeGif {
+  width: 100px;
+  margin: 20px auto;
+}
+
+.SearchResult__weirdness input {
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+.spinner {
+  margin: 0 auto;
+  margin-top: 100px;
 }
 
 /**************
