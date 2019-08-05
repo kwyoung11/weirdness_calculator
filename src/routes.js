@@ -9,10 +9,8 @@ import ResultPage from './components/ResultPage';
 
 const AppRouter = (props) => (
   <Router>
-    <div>
-      <Route exact path='/' component={App} />
-      <Route exact path='/result' component={ResultPage} />
-    </div>
+  	<Route exact path='/' component={App} />
+  	<Route exact path='/result' component={ResultPage} />
   </Router>
 );
 

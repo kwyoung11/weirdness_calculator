@@ -22,7 +22,7 @@ export class Search extends React.Component {
 				<form id="searchForm" onSubmit={e => this.props.handleSearchTermSubmit(e)}>
 		    	  <label htmlFor="searchTerm">Search Term</label>
 		    	  <input id="TooltipExample" ref={this.props.searchInput} type="text" name="searchTerm" onChange={e => this.props.handleSearchTermChange(e)} />
-		    	  <button type="submit">Search</button>
+		    	  <button ref={this.props.searchButton} type="submit">SEARCH</button>
 		    	  <Tooltip placement="bottom" trigger={"focus"} isOpen={this.props.toolTipOpen} target="TooltipExample">
     	      		Try another search term!
     	    	  </Tooltip>

@@ -7,6 +7,7 @@ export const GifList = (props) => {
 		return props.gifs.map(gif => {
 			return (
 				<li>
+					<h5>{gif.title}</h5>
 					<Gif height="250" width="250" gif={gif} />
 				</li>
 			);

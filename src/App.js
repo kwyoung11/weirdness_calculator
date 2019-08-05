@@ -33,6 +33,7 @@ class App extends React.Component {
     this.handleSearchTermSubmit = this.handleSearchTermSubmit.bind(this);
 
     this.searchInput = React.createRef();
+    this.searchButton = React.createRef();
     this.likeGifButton = React.createRef();
     this.calculateWeirdnessButton = React.createRef();
   }
@@ -69,10 +70,12 @@ class App extends React.Component {
     this.searchInput.current.focus();
     this.searchInput.current.value = "";
     this.setState({
-      toolTipOpen: true
+      toolTipOpen: this.props.likedGifs.length + 1 != 5
     });
     if (this.props.likedGifs.length + 1 == 5) {
+      this.searchButton.current.setAttribute("disabled", "disabled");
       this.calculateWeirdnessButton.current.removeAttribute("disabled");
+      this.searchInput.current.blur();
     }
   }
 
@@ -83,7 +86,7 @@ class App extends React.Component {
   render() {
     return (
     	<React.Fragment>
-	    	<Header />
+        <Header />
 	    	<Container fluid>
 	      		<Row>
 	            	<Col xs="6">
@@ -91,7 +94,8 @@ class App extends React.Component {
 	            			handleSearchTermSubmit={this.handleSearchTermSubmit} 
                 			handleSearchTermChange={this.handleSearchTermChange}
                       searchInput={this.searchInput}
-                      toolTipOpen={this.state.toolTipOpen} />
+                      toolTipOpen={this.state.toolTipOpen}
+                      searchButton={this.searchButton} />
 	            		<SearchResult 
 	            			weirdness={this.props.weirdness}
 	            			onLikeGif={this.onLikeGif}
