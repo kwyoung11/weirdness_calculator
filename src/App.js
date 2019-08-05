@@ -1,11 +1,13 @@
 import React from 'react';
 import './App.css';
+
 import { connect } from 'react-redux';
 
 import { Header } from './components/Header';
 import { Search } from './components/Search';
 import { SearchResult } from './components/SearchResult';
 
+import { apiRequest } from './actions/searchTerm-actions';
 import { updateWeirdness } from './actions/weirdness-actions';
 import { updateSearchTerm } from './actions/searchTerm-actions';
 import { likeGif, unlikeGif } from './actions/likedGifs-actions';
@@ -36,6 +38,7 @@ class App extends React.Component {
   handleSearchTermSubmit(e) {
     e.preventDefault();
     this.props.onUpdateSearchTerm(this.state.searchTerm);
+    this.props.onApiRequest();
   }
 
   onUpdateWeirdness(e) {
@@ -88,6 +91,7 @@ const mapStateToProps = (state, props) => {
 const mapActionsToProps = {
   onUpdateWeirdness: updateWeirdness,
   onUpdateSearchTerm: updateSearchTerm,
+  onApiRequest: apiRequest,
   onLikeGif: likeGif,
   onUnlikeGif: unlikeGif
 };

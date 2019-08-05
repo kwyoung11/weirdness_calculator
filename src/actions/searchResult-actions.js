@@ -5,7 +5,7 @@ export function updateSearchResult(newSearchResult, weirdness) {
 		type: UPDATE_SEARCH_RESULT,
 		payload: {
 			searchResult: {
-				id: newSearchResult.id, 
+				id: newSearchResult.id,
 				title: newSearchResult.title,
 				url: newSearchResult.images.downsized_medium.url,
 				weirdness: weirdness

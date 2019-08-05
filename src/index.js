@@ -2,8 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 
+import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
-import { combineReducers, createStore } from 'redux';
+import { applyMiddleware, compose, combineReducers, createStore } from 'redux';
 import Routes from './routes';
 
 import likedGifsReducer from './reducers/likedGifs-reducer';
@@ -21,7 +22,15 @@ const allReducers = combineReducers({
 	searchResult: searchResultReducer
 });
 
-const store = createStore(allReducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+const allStoreEnhancers = compose(
+	applyMiddleware(thunk),
+	window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
+
+const store = createStore(
+	allReducers, 
+	allStoreEnhancers
+);
 
 ReactDOM.render(
 	<Provider store={store}>
