@@ -7,7 +7,7 @@ export const SearchResult = (props) => {
 	const renderResultOrError = () => {
 		if (props.searchResult.url) {
 			return (
-				<Gif width="300" height="300" gif={props.searchResult}/>
+				<Gif width="250" height="250" gif={props.searchResult}/>
 			);
 		} else {
 			const display = props.loadingIndicatorRunning ? <Spinner className="spinner" color="primary" /> : <p>Please enter a search term in the box above and click Search to find a GIF.</p>

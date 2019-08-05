@@ -3,15 +3,14 @@
 }
 
 .container-fluid {
-  margin: 0;
-  padding: 0;
+ 
 }
 
 header {
   text-align: left;
   background-color: #efefef;
   width: 100%;
-  padding: 30px;
+  padding: 25px 30px 25px 30px;
   font-weight: bold;
   font-size: 22px;
 }
@@ -20,7 +19,7 @@ header {
 Search
 *******************/
 .Search {
-  padding: 40px 40px 20px 40px;
+  padding: 40px 40px 40px 30px !important;
 }
 
 .Search label {
@@ -36,7 +35,7 @@ Search
 SearchResult
 **************/
 .SearchResult {
-  padding: 50px 50px 0px 50px;
+  padding: 30px 50px 0px 30px !important;
   background-color: #fafafa;
   border: 1px solid #eee;
 }
@@ -58,12 +57,20 @@ SearchResult
 }
 
 .SearchResult__image__wrapper {
-  width: 300px;
-  height: 300px;
+  width: 250px;
+  height: 250px;
   margin: 0 auto;
   border: 1px solid #eee;
   font-style: italic;
   text-align: center;
+}
+
+.SearchResult__image__wrapper p {
+  padding: 0px 10px 0px 10px;
+}
+
+.SearchResult__image__wrapper .Gif {
+  padding: 0px;
 }
 
 .SearchResult__image__wrapper p {
@@ -98,8 +105,8 @@ GifList
 }
 
 .GifList li {
+  margin: 20px 0px 20px 0px;
   flex: 0 1 250px;
-  margin: 20px;
 }
 
 .GifList li h5 {
@@ -120,6 +127,10 @@ LikedGifs
   background-color: #fafafa;
   height: 100%;
   border: 1px solid #eee;
+}
+
+.LikedGifs > h5 {
+  padding-left: 30px;
 }
 
 .LikedGifs p {
