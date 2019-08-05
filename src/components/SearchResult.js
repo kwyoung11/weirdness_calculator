@@ -10,11 +10,11 @@ export const SearchResult = (props) => {
 				<h5>TITLE</h5>
 				<div>IMAGE</div>
 			</div>
-			<button>LIKE GIF</button>
+			<button onClick={e => props.onLikeGif(e)}>LIKE GIF</button>
 			<div>
-				<label htmlFor="weirdness">Weirdness</label>
-        		<input type="range" defaultValue="0" name="weirdness"
+        		<input type="range" defaultValue="0" onChange={e => props.onUpdateWeirdness(e)} name="weirdness"
          		min="0" max="10"/>
+         		<label htmlFor="weirdness">Weirdness</label>: {props.weirdness}
          	</div>
 	    </Container>
 	);
