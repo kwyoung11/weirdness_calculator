@@ -11,6 +11,7 @@ import { LikedGifs } from './components/LikedGifs';
 import { apiRequest } from './actions/searchTerm-actions';
 import { updateWeirdness } from './actions/weirdness-actions';
 import { updateSearchTerm } from './actions/searchTerm-actions';
+import { clearSearchResult } from './actions/searchResult-actions';
 import { likeGif, unlikeGif } from './actions/likedGifs-actions';
 
 import { Container, Row, Col } from 'reactstrap';
@@ -21,6 +22,7 @@ class App extends React.Component {
     super(props);
     this.state = {
     	searchTerm: props.searchTerm,
+      toolTipOpen: false,
       loadingIndicatorRunning: false
     };
 
@@ -37,7 +39,8 @@ class App extends React.Component {
 
   handleSearchTermChange(e) {
     this.setState({
-      searchTerm: e.target.value
+      searchTerm: e.target.value,
+      toolTipOpen: false
     });
   }
 
@@ -61,7 +64,13 @@ class App extends React.Component {
 
   onLikeGif(e) {
     this.props.onLikeGif(JSON.parse(e.target.getAttribute("data-gif")));
+    this.props.onClearSearchResult();
     this.likeGifButton.current.setAttribute("disabled", "disabled");
+    this.searchInput.current.focus();
+    this.searchInput.current.value = "";
+    this.setState({
+      toolTipOpen: true
+    });
     if (this.props.likedGifs.length + 1 == 5) {
       this.calculateWeirdnessButton.current.removeAttribute("disabled");
     }
@@ -81,7 +90,8 @@ class App extends React.Component {
 	            		<Search 
 	            			handleSearchTermSubmit={this.handleSearchTermSubmit} 
                 			handleSearchTermChange={this.handleSearchTermChange}
-                      searchInput={this.searchInput} />
+                      searchInput={this.searchInput}
+                      toolTipOpen={this.state.toolTipOpen} />
 	            		<SearchResult 
 	            			weirdness={this.props.weirdness}
 	            			onLikeGif={this.onLikeGif}
@@ -117,7 +127,8 @@ const mapActionsToProps = {
   onUpdateSearchTerm: updateSearchTerm,
   onApiRequest: apiRequest,
   onLikeGif: likeGif,
-  onUnlikeGif: unlikeGif
+  onUnlikeGif: unlikeGif,
+  onClearSearchResult: clearSearchResult
 };
 
 export default connect(mapStateToProps, mapActionsToProps)(App);
