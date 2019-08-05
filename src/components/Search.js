@@ -20,7 +20,7 @@ export class Search extends React.Component {
 				</div>
 				<form id="searchForm" onSubmit={e => this.props.handleSearchTermSubmit(e)}>
 		    	  <label htmlFor="searchTerm">Search Term</label>
-		    	  <input type="text" name="searchTerm" onChange={e => this.props.handleSearchTermChange(e)} />
+		    	  <input ref={this.props.searchInput} type="text" name="searchTerm" onChange={e => this.props.handleSearchTermChange(e)} />
 		    	  <button type="submit">Search</button>
 		    	</form>
 		    </Container>

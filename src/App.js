@@ -28,6 +28,10 @@ class App extends React.Component {
     this.onUnlikeGif = this.onUnlikeGif.bind(this);
     this.handleSearchTermChange = this.handleSearchTermChange.bind(this);
     this.handleSearchTermSubmit = this.handleSearchTermSubmit.bind(this);
+
+    this.searchInput = React.createRef();
+    this.likeGifButton = React.createRef();
+    this.calculateWeirdnessButton = React.createRef();
   }
 
   handleSearchTermChange(e) {
@@ -40,6 +44,7 @@ class App extends React.Component {
     e.preventDefault();
     this.props.onUpdateSearchTerm(this.state.searchTerm);
     this.props.onApiRequest();
+    this.likeGifButton.current.removeAttribute("disabled");
   }
 
   onUpdateWeirdness(e) {
@@ -48,6 +53,10 @@ class App extends React.Component {
 
   onLikeGif(e) {
     this.props.onLikeGif(JSON.parse(e.target.getAttribute("data-gif")));
+    this.likeGifButton.current.setAttribute("disabled", "disabled");
+    if (this.props.likedGifs.length + 1 == 5) {
+      this.calculateWeirdnessButton.current.removeAttribute("disabled");
+    }
   }
 
   onUnlikeGif(e) {
@@ -63,15 +72,19 @@ class App extends React.Component {
 	            	<Col xs="6">
 	            		<Search 
 	            			handleSearchTermSubmit={this.handleSearchTermSubmit} 
-                			handleSearchTermChange={this.handleSearchTermChange}/>
+                			handleSearchTermChange={this.handleSearchTermChange}
+                      searchInput={this.searchInput} />
 	            		<SearchResult 
 	            			weirdness={this.props.weirdness}
 	            			onLikeGif={this.onLikeGif}
 	            			searchResult={this.props.searchResult}
-                			onUpdateWeirdness={this.onUpdateWeirdness}/>
+                    likeGifButton={this.likeGifButton}
+                		onUpdateWeirdness={this.onUpdateWeirdness} />
 	            	</Col>
 	            	<Col xs="6">
-	            		<LikedGifs likedGifs={this.props.likedGifs} />
+	            		<LikedGifs
+                    likedGifs={this.props.likedGifs}
+                    calculateWeirdnessButton={this.calculateWeirdnessButton} />
 	            	</Col>
 	            </Row>
 	      	</Container>

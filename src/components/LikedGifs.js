@@ -18,7 +18,7 @@ export const LikedGifs = (props) => {
 					pathname: "/result",
 					state: {gifs: props.likedGifs}
 					}}>
-					<button disabled>
+					<button ref={props.calculateWeirdnessButton} disabled>
 						CALCULATE MY WEIRDNESS SCORE
 					</button>
 				</Link>

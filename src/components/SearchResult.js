@@ -25,7 +25,7 @@ export const SearchResult = (props) => {
 				<h5>{props.searchResult.title}</h5>
 				<div>{renderResultOrError()}</div>
 			</div>
-			<button data-gif={JSON.stringify(props.searchResult)}
+			<button ref={props.likeGifButton} data-gif={JSON.stringify(props.searchResult)}
 			onClick={e => props.onLikeGif(e)}>LIKE GIF</button>
 			<div>
         		<input type="range" defaultValue="0" onChange={e => props.onUpdateWeirdness(e)} name="weirdness"
