@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import { connect } from 'react-redux';
+import { Header } from './components/Header';
 
 class App extends React.Component {
 
@@ -11,7 +12,9 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>TODO</div>
+    	<React.Fragment>
+      		<Header />
+      	</React.Fragment>
     );  
   }
   
