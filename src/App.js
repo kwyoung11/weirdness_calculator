@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import { Header } from './components/Header';
 import { Search } from './components/Search';
 import { SearchResult } from './components/SearchResult';
+import { LikedGifs } from './components/LikedGifs';
 
 import { apiRequest } from './actions/searchTerm-actions';
 import { updateWeirdness } from './actions/weirdness-actions';
@@ -70,7 +71,7 @@ class App extends React.Component {
                 			onUpdateWeirdness={this.onUpdateWeirdness}/>
 	            	</Col>
 	            	<Col xs="6">
-	            		LIKED GIFS
+	            		<LikedGifs likedGifs={this.props.likedGifs} />
 	            	</Col>
 	            </Row>
 	      	</Container>
