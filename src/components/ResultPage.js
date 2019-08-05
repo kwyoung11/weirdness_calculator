@@ -8,14 +8,17 @@ import { Header } from './Header';
 
 const ResultPage = (props) => {
 	console.log("IN RESULTPAGE", props.likedGifs);
-	const avg_weirdness = props.likedGifs.map(lg => lg.weirdness).reduce((a, b) => a + b, 0) / 5;
+	const avg_weirdness = Math.round((props.likedGifs.map(lg => lg.weirdness).reduce((a, b) => a + b, 0)) / 5);
 	return (
 		<React.Fragment>
 			<Header />
 			<Container className="ResultPage">
-				<h4> You scored an {avg_weirdness} out of 10 on the weirdness scale! </h4>
+				<h4> You scored a 
+					<span className="ResultPage__avg-weirdness"> {avg_weirdness} </span> 
+					 out of 10 on the weirdness scale! 
+				</h4>
 				<h5> The GIFs you liked </h5>
-				<GifList gifs={props.likedGifs} />
+				<GifList gifs={props.likedGifs} includeWeirdness={true} />
 				<div className="ResultPage__start-over">
 					<Link to="/">
 						<button>

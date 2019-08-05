@@ -9,7 +9,8 @@ export default function likedGifsReducer(state = [], {type, payload}) {
       		  {
       		    id: payload.gif.id,
       		    title: payload.gif.title,
-      		    url: payload.gif.url
+      		    url: payload.gif.url,
+      		    weirdness: payload.gif.weirdness
       		  }
       		];
 		case UNLIKE_GIF:

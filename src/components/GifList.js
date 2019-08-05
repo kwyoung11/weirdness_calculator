@@ -9,10 +9,11 @@ export const GifList = (props) => {
 				<li>
 					<h5>{gif.title}</h5>
 					<Gif height="250" width="250" gif={gif} />
+					{props.includeWeirdness ? <div className="GifList__weirdness">{gif.weirdness}/10</div> : ""}
 				</li>
 			);
 		});	
-	} 
+	}
 	return (
 		<Container className="GifList">
 			<ul>

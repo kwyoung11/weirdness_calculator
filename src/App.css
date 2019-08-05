@@ -103,8 +103,13 @@ GifList
 }
 
 .GifList li h5 {
+  text-align: center;
   white-space: nowrap;
   overflow: hidden;
+}
+
+.GifList__weirdness {
+  text-align: center;
 }
 
 /*********************
@@ -137,4 +142,9 @@ ResultPage
 
 .ResultPage__start-over {
   text-align: center;
+}
+
+.ResultPage button {
+  background-color: #999;
+  color: #fff;
 }
