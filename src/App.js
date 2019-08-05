@@ -46,7 +46,7 @@ class App extends React.Component {
   }
 
   onLikeGif(e) {
-    // TODO
+    this.props.onLikeGif(JSON.parse(e.target.getAttribute("data-gif")));
   }
 
   onUnlikeGif(e) {
@@ -66,6 +66,7 @@ class App extends React.Component {
 	            		<SearchResult 
 	            			weirdness={this.props.weirdness}
 	            			onLikeGif={this.onLikeGif}
+	            			searchResult={this.props.searchResult}
                 			onUpdateWeirdness={this.onUpdateWeirdness}/>
 	            	</Col>
 	            	<Col xs="6">
