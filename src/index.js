@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
 
 import { Provider } from 'react-redux';
@@ -11,6 +10,9 @@ import likedGifsReducer from './reducers/likedGifs-reducer';
 import weirdnessReducer from './reducers/weirdness-reducer';
 import searchTermReducer from './reducers/searchTerm-reducer';
 import searchResultReducer from './reducers/searchResult-reducer';
+
+import './index.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const allReducers = combineReducers({
 	likedGifs: likedGifsReducer,
