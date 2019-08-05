@@ -80,7 +80,7 @@ class App extends React.Component {
   }
 
   onUnlikeGif(e) {
-    // TODO
+    this.props.onUnlikeGif(JSON.parse(e.target.getAttribute("data-gif")));
   }
 
   render() {
@@ -107,6 +107,7 @@ class App extends React.Component {
 	            	<Col xs="6">
 	            		<LikedGifs
                     likedGifs={this.props.likedGifs}
+                    onUnlikeGif={this.onUnlikeGif}
                     calculateWeirdnessButton={this.calculateWeirdnessButton} />
 	            	</Col>
 	            </Row>

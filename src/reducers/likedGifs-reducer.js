@@ -14,7 +14,8 @@ export default function likedGifsReducer(state = [], {type, payload}) {
       		  }
       		];
 		case UNLIKE_GIF:
-			let index = state.index(payload.id);
+			const ids = state.map(p => p.id);
+                  const index = ids.indexOf(payload.gif.id);
       		return [...state.slice(0, index), ...state.slice(index + 1)]
 		default:
 			return state;

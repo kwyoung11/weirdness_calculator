@@ -1,6 +1,6 @@
 import React from 'react';
 import { Gif } from './Gif';
-import { Container } from 'reactstrap';
+import { Button, Container } from 'reactstrap';
 
 export const GifList = (props) => {
 	const gifs = () => {
@@ -8,7 +8,7 @@ export const GifList = (props) => {
 			return (
 				<li>
 					<h5>{gif.title}</h5>
-					<Gif height="250" width="250" gif={gif} />
+					<Gif onUnlikeGif={props.onUnlikeGif} height="250" width="250" gif={gif} />
 					{props.includeWeirdness ? <div className="GifList__weirdness">{gif.weirdness}/10</div> : ""}
 				</li>
 			);

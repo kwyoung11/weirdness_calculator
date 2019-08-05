@@ -7,7 +7,6 @@ import { Link } from 'react-router-dom';
 import { Header } from './Header';
 
 const ResultPage = (props) => {
-	console.log("IN RESULTPAGE", props.likedGifs);
 	const avg_weirdness = Math.round((props.likedGifs.map(lg => lg.weirdness).reduce((a, b) => a + b, 0)) / 5);
 	return (
 		<React.Fragment>

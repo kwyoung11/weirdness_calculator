@@ -1,5 +1,4 @@
 import React from 'react';
-import { Gif } from './Gif';
 import { GifList } from './GifList';
 import { Link } from 'react-router-dom';
 import { Container } from 'reactstrap';
@@ -10,7 +9,7 @@ export const LikedGifs = (props) => {
 	return (
 		<Container className="LikedGifs">
 			<h5> YOUR LIKED GIFS </h5>
-			<GifList gifs={props.likedGifs} />
+			<GifList onUnlikeGif={props.onUnlikeGif} gifs={props.likedGifs} />
 			
 			<div className="LikedGifs__weirdness-button">
 				<Link to={{
