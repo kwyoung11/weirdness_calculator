@@ -3,4 +3,19 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import Routes from './routes';
+
+const reducer = () => {
+	return 'TODO';
+}
+
+const store = createStore(reducer);
+
+ReactDOM.render(
+	<Provider store={store}>
+		<Routes />
+  	</Provider>, 
+	document.getElementById('root')
+);
