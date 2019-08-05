@@ -126,3 +126,15 @@ LikedGifs
 .LikedGifs__weirdness-button {
   text-align: center;
 }
+
+/********************
+ResultPage
+********************/
+.ResultPage h4 {
+  padding: 50px;
+  text-align: center;
+}
+
+.ResultPage__start-over {
+  text-align: center;
+}

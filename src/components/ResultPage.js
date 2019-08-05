@@ -1,9 +1,30 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Container } from 'reactstrap';
+
+import { GifList } from './GifList';
+import { Link } from 'react-router-dom';
+import { Header } from './Header';
 
 const ResultPage = (props) => {
+	console.log("IN RESULTPAGE", props.likedGifs);
+	const avg_weirdness = props.likedGifs.map(lg => lg.weirdness).reduce((a, b) => a + b, 0) / 5;
 	return (
-		<div> TODO ResultPage </div>
+		<React.Fragment>
+			<Header />
+			<Container className="ResultPage">
+				<h4> You scored an {avg_weirdness} out of 10 on the weirdness scale! </h4>
+				<h5> The GIFs you liked </h5>
+				<GifList gifs={props.likedGifs} />
+				<div className="ResultPage__start-over">
+					<Link to="/">
+						<button>
+							START OVER
+						</button>
+					</Link>
+				</div>
+			</Container>
+		</React.Fragment>
 	);
 }
 
