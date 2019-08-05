@@ -70,9 +70,9 @@ class App extends React.Component {
     this.searchInput.current.focus();
     this.searchInput.current.value = "";
     this.setState({
-      toolTipOpen: this.props.likedGifs.length + 1 != 5
+      toolTipOpen: this.props.likedGifs.length + 1 !== 5
     });
-    if (this.props.likedGifs.length + 1 == 5) {
+    if (this.props.likedGifs.length + 1 === 5) {
       this.searchButton.current.setAttribute("disabled", "disabled");
       this.calculateWeirdnessButton.current.removeAttribute("disabled");
       this.searchInput.current.blur();

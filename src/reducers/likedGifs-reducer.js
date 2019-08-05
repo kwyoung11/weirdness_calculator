@@ -1,5 +1,4 @@
 import { LIKE_GIF, UNLIKE_GIF } from '../actions/likedGifs-actions';
-import { likeGif, unlikeGif } from '../actions/likedGifs-actions';
 
 export default function likedGifsReducer(state = [], {type, payload}) {
 	switch(type) {

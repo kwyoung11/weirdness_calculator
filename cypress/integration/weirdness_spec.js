@@ -57,7 +57,7 @@ describe('Adding five gifs should allow user to calculate weirdness score', func
 		cy.wait(1000);
 		cy.get(".SearchResult button").click();
 		
-		cy.get(".LikedGifs button").click();
+		cy.get(".LikedGifs__weirdness-button button").click();
 		// 7 + 3 + 1 + 6 + 5 / 5 = 4.4 => 4 
 		cy.get('.ResultPage .ResultPage__avg-weirdness').should("contain", "4");
 	});

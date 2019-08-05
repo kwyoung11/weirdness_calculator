@@ -20,7 +20,7 @@ export function apiRequest(callback) {
 		fetch(SEARCH_ENDPOINT + `?s=${searchTerm}&weirdness=${weirdness}&api_key=${API_KEY}`)
 		.then(res => res.json())
 		.then(({data}) => {
-			if (data.status != 200) {
+			if (data.status !== 200) {
 				callback({status: "error", msg: data.msg});
 			} else {
 				callback({status: "success", msg: data.msg});

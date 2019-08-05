@@ -1,6 +1,6 @@
 import React from 'react';
 import { Gif } from './Gif';
-import { Button, Container } from 'reactstrap';
+import { Container } from 'reactstrap';
 
 export const GifList = (props) => {
 	const gifs = () => {
