@@ -5,9 +5,13 @@ import { Spinner } from 'reactstrap';
 
 export const SearchResult = (props) => {
 	const renderResultOrError = () => {
-		if (props.searchResult.url) {
+		if (props.searchResult.meta && props.searchResult.meta.status == 200) {
 			return (
 				<Gif width="250" height="250" gif={props.searchResult}/>
+			);
+		} else if (props.searchResult.meta && props.searchResult.meta.status != 200) {
+			return (
+				<p>There was an error processing your request. The error message is: {props.searchResult.meta.status} {props.searchResult.meta.msg} </p>
 			);
 		} else {
 			const display = props.loadingIndicatorRunning ? <Spinner className="spinner" color="primary" /> : <p>Please enter a search term in the box above and click Search to find a GIF.</p>

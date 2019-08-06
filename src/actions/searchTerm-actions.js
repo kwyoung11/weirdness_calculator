@@ -19,13 +19,9 @@ export function apiRequest(callback) {
 		const { searchTerm, weirdness } = getState();
 		fetch(SEARCH_ENDPOINT + `?s=${searchTerm}&weirdness=${weirdness}&api_key=${API_KEY}`)
 		.then(res => res.json())
-		.then(({data}) => {
-			if (data.status !== 200) {
-				callback({status: "error", msg: data.msg});
-			} else {
-				callback({status: "success", msg: data.msg});
-			}
-			dispatch(updateSearchResult(data, weirdness));
+		.then(({data, meta}) => {
+			dispatch(updateSearchResult(data, meta, weirdness));
+			callback();
 		});
 	}
 }

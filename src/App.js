@@ -51,7 +51,7 @@ class App extends React.Component {
       loadingIndicatorRunning: true
     });
     this.props.onUpdateSearchTerm(this.state.searchTerm);
-    this.props.onApiRequest((response) => {
+    this.props.onApiRequest(() => {
       this.setState({
         loadingIndicatorRunning: false
       });
