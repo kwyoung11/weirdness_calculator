@@ -14,8 +14,6 @@ import { updateSearchTerm } from './actions/searchTerm-actions';
 import { clearSearchResult } from './actions/searchResult-actions';
 import { likeGif, unlikeGif } from './actions/likedGifs-actions';
 
-import { Container, Row, Col } from 'reactstrap';
-
 class App extends React.Component {
 
   constructor(props) {
@@ -87,31 +85,29 @@ class App extends React.Component {
     return (
     	<React.Fragment>
         <Header />
-	    	<Container fluid>
-	      		<Row>
-	            	<Col xs="6">
-	            		<Search 
-	            			handleSearchTermSubmit={this.handleSearchTermSubmit} 
-                			handleSearchTermChange={this.handleSearchTermChange}
-                      searchInput={this.searchInput}
-                      toolTipOpen={this.state.toolTipOpen}
-                      searchButton={this.searchButton} />
-	            		<SearchResult 
-	            			weirdness={this.props.weirdness}
-	            			onLikeGif={this.onLikeGif}
-	            			searchResult={this.props.searchResult}
-                    likeGifButton={this.likeGifButton}
-                		onUpdateWeirdness={this.onUpdateWeirdness}
-                    loadingIndicatorRunning={this.state.loadingIndicatorRunning} />
-	            	</Col>
-	            	<Col xs="6">
-	            		<LikedGifs
-                    likedGifs={this.props.likedGifs}
-                    onUnlikeGif={this.onUnlikeGif}
-                    calculateWeirdnessButton={this.calculateWeirdnessButton} />
-	            	</Col>
-	            </Row>
-	      	</Container>
+	    	<section className="App">
+	        <div className="column">
+	        	<Search 
+	        		handleSearchTermSubmit={this.handleSearchTermSubmit} 
+          			handleSearchTermChange={this.handleSearchTermChange}
+                searchInput={this.searchInput}
+                toolTipOpen={this.state.toolTipOpen}
+                searchButton={this.searchButton} />
+	        	<SearchResult 
+	        		weirdness={this.props.weirdness}
+	        		onLikeGif={this.onLikeGif}
+	        		searchResult={this.props.searchResult}
+              likeGifButton={this.likeGifButton}
+          		onUpdateWeirdness={this.onUpdateWeirdness}
+              loadingIndicatorRunning={this.state.loadingIndicatorRunning} />
+	        </div>
+	        <div className="column">
+	        	<LikedGifs
+              likedGifs={this.props.likedGifs}
+              onUnlikeGif={this.onUnlikeGif}
+              calculateWeirdnessButton={this.calculateWeirdnessButton} />
+	        </div>
+	      	</section>
       	</React.Fragment>
     );  
   } 

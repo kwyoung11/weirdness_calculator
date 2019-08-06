@@ -1,6 +1,5 @@
 import React from 'react';
 import { Gif } from './Gif';
-import { Container } from 'reactstrap';
 
 export const GifList = (props) => {
 	const gifs = () => {
@@ -15,10 +14,10 @@ export const GifList = (props) => {
 		});	
 	}
 	return (
-		<Container className="GifList">
+		<section className="GifList component">
 			<ul>
 				{gifs()}
 			</ul>
-		</Container>
+		</section>
 	);
 };

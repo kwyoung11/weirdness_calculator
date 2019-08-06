@@ -1,10 +1,9 @@
 import React from 'react';
-import { Container } from 'reactstrap';
 import { Tooltip } from 'reactstrap';
 
 export const Search = (props) => {
   	return (
-		<Container className="Search">
+		<section className="Search component">
 			<div>
 				<p>
 	    	  	  Find out how weird you are by selecting the GIFs that make you laugh.
@@ -15,13 +14,13 @@ export const Search = (props) => {
 	    	  	</p>
 			</div>
 			<form id="searchForm" onSubmit={e => props.handleSearchTermSubmit(e)}>
-	    	  <label htmlFor="searchTerm">Search Term</label>
+	    	  <label htmlFor="searchTerm">Search term</label>
 	    	  <input id="TooltipExample" ref={props.searchInput} type="text" name="searchTerm" onChange={e => props.handleSearchTermChange(e)} />
 	    	  <button ref={props.searchButton} type="submit">SEARCH</button>
 	    	  <Tooltip placement="bottom" trigger={"focus"} isOpen={props.toolTipOpen} target="TooltipExample">
           		Try another search term!
         	  </Tooltip>
 	    	</form>
-	    </Container>
+	    </section>
 	);	
 }

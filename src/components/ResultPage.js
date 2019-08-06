@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Container } from 'reactstrap';
 
 import { GifList } from './GifList';
 import { Link } from 'react-router-dom';
@@ -11,13 +10,12 @@ const ResultPage = (props) => {
 	return (
 		<React.Fragment>
 			<Header />
-			<Container className="ResultPage">
+			<section className="ResultPage component">
 				<h4> You scored a 
 					<span className="ResultPage__avg-weirdness"> {avg_weirdness} </span> 
 					 out of 10 on the weirdness scale! 
 				</h4>
-				<h5> The GIFs you liked </h5>
-				<GifList gifs={props.likedGifs} includeWeirdness={true} />
+				<GifList title="The GIFs you liked" gifs={props.likedGifs} includeWeirdness={true} />
 				<div className="ResultPage__start-over">
 					<Link to="/">
 						<button>
@@ -25,7 +23,7 @@ const ResultPage = (props) => {
 						</button>
 					</Link>
 				</div>
-			</Container>
+			</section>
 		</React.Fragment>
 	);
 }

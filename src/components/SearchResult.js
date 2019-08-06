@@ -1,5 +1,4 @@
 import React from 'react';
-import { Container } from 'reactstrap';
 import { Gif } from './Gif';
 import { Spinner } from 'reactstrap';
 
@@ -24,8 +23,8 @@ export const SearchResult = (props) => {
 	}
 
 	return (
-		<Container className="SearchResult">
-			<h4>YOUR RESULT</h4>
+		<section className="SearchResult component">
+			<h4 className="component-title">YOUR RESULT</h4>
 			<div className="SearchResult__image">
 				<h5>{props.searchResult.title}</h5>
 				<div className="SearchResult__image__wrapper">
@@ -42,6 +41,6 @@ export const SearchResult = (props) => {
         		name="weirdness" min="0" max="10"/>
          		<label htmlFor="weirdness">Weirdness</label>: {props.weirdness}
          	</div>
-	    </Container>
+	    </section>
 	);
 }

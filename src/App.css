@@ -1,15 +1,48 @@
-.col-6 {
-  padding: 0px !important;
+/******************
+layout
+******************/
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
 }
 
-.container-fluid {
- 
+.App {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+.App .column {
+  flex: 1 1 500px;
+}
+
+.component {
+  padding: 20px 30px 30px 30px;
+}
+
+.component-title {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+label {
+  color: #777;
+}
+
+input {
+  height: 25px;
+}
+
+p {
+  line-height: 1.5em;
 }
 
 header {
   text-align: left;
   background-color: #efefef;
-  width: 100%;
   padding: 25px 30px 25px 30px;
   font-weight: bold;
   font-size: 22px;
@@ -18,9 +51,6 @@ header {
 /*******************
 Search
 *******************/
-.Search {
-  padding: 40px 40px 40px 30px !important;
-}
 
 .Search label {
   display: block;
@@ -35,7 +65,6 @@ Search
 SearchResult
 **************/
 .SearchResult {
-  padding: 30px 50px 0px 30px !important;
   background-color: #fafafa;
   border: 1px solid #eee;
 }
@@ -105,7 +134,7 @@ GifList
 }
 
 .GifList li {
-  margin: 20px 0px 20px 0px;
+  margin: 20px;
   flex: 0 1 250px;
 }
 
@@ -123,14 +152,9 @@ LikedGifs
 **********************/
 
 .LikedGifs {
-  padding: 50px;
-  background-color: #fafafa;
   height: 100%;
+  background-color: #fafafa;
   border: 1px solid #eee;
-}
-
-.LikedGifs > h5 {
-  padding-left: 30px;
 }
 
 .LikedGifs p {
@@ -151,7 +175,7 @@ Gif
 
 .close {
   position: absolute;
-  left: 84%;
+  left: 88%;
   top: 3% !important;
   background-color: #222 !important;
   padding: 0px !important;
@@ -172,14 +196,13 @@ Gif
   background: transparent;
   position: absolute;
   top: 45%;
-  left: 30%;
+  left: 28%;
 }
 
 /********************
 ResultPage
 ********************/
 .ResultPage h4 {
-  padding: 50px;
   text-align: center;
 }
 
